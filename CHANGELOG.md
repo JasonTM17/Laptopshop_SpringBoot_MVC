@@ -4,6 +4,10 @@ All notable changes to Laptopshop are documented here. Detailed release context 
 
 ## Unreleased
 
+- Hardened Spring Security route fallback, login failure handling, security headers, API JSON entry points, image upload validation, and remember-me behavior.
+- Added regression coverage for security headers, strong password policy, and spoofed image upload rejection.
+- Added CodeQL Java analysis workflow and documented the updated security baseline.
+- Hardened the Docker runtime to run as a non-root user.
 - Account-synced wishlist, real payment integration, promotion/spec schema, object storage, and notification adapters are planned as possible next-release slices.
 
 ## v1.0.0 Portfolio Showcase - 2026-04-30

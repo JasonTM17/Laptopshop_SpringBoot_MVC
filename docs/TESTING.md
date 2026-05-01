@@ -42,7 +42,8 @@ docker compose config
 | Product catalog | Filtering, search by name, product suggestions, sorting, price ranges |
 | Cart | Add, update, remove, invalid quantity, stock limits |
 | Checkout | Empty cart, order creation, stock decrement, sold count |
-| Security | API JSON `401/403`, protected page redirect, admin access denial |
+| Security | API JSON `401/403`, protected page redirect, admin access denial, security headers, strong password policy |
+| Uploads | Image MIME/extension/signature validation and spoofed image rejection |
 | E2E smoke | Home, catalog, product detail, manifest, favicon, sitemap, health |
 | Auth flow | Customer add-to-cart, cart page, checkout, order history |
 | Admin | Dashboard metrics, backend list search/filter, order detail route, CSV export, status transition validation |
@@ -93,6 +94,9 @@ Interaction checks:
 - Admin dashboard charts load with backend data.
 - Admin quick search routes to `/admin/product?q=...`.
 - `/api/products/suggest?name=mac`, `/sitemap.xml`, and `/robots.txt` return `200`.
+- Security headers are present on storefront pages: CSP, referrer policy, permissions policy, and `nosniff`.
+- Docker image builds and runs with non-root user `10001:10001`.
+- CodeQL Java workflow exists for GitHub security scanning.
 
 ## When To Add Tests
 

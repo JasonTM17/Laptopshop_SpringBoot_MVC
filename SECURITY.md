@@ -24,3 +24,8 @@ Include:
 - Demo seed data should stay disabled outside the `local` profile.
 - Admin routes require the `ADMIN` role.
 - API authentication failures return JSON `401` responses instead of HTML login redirects.
+- Security headers are enabled for storefront and admin pages, including CSP, referrer policy, permissions policy, frame protection, and `nosniff`.
+- Public registration and password-change flows require a strong password pattern.
+- Image uploads are restricted by MIME type, extension, size, sanitized filename, and file signature.
+- Docker runtime uses a non-root user.
+- CI includes Maven tests/package, Docker image build, Dependabot, and CodeQL Java analysis.

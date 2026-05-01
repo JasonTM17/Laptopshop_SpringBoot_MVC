@@ -45,6 +45,8 @@ This matrix maps visible product features to implementation areas and verificati
 | Static metadata | `/robots.txt`, `/sitemap.xml`, `/site.webmanifest` | `WebMvcConfig`, webapp resources | Static route smoke |
 | Docker | `Dockerfile`, `docker-compose.yml` | WAR package and MySQL service | Docker docs/checklist |
 | CI | `.github/workflows/ci.yml` | Maven package workflow | GitHub Actions |
+| Security scanning | `.github/workflows/codeql.yml`, `.github/dependabot.yml` | CodeQL Java analysis and dependency update checks | GitHub Security |
+| Runtime hardening | `SecurityConfiguration`, `UploadService`, `Dockerfile`, `SECURITY.md` | Security headers, strict route fallback, upload signature checks, non-root container user | Automated tests and Docker smoke |
 
 ## Known Intentional Gaps
 

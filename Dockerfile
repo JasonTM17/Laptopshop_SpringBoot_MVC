@@ -12,12 +12,15 @@ RUN ./mvnw -B -DskipTests package
 FROM public.ecr.aws/docker/library/eclipse-temurin:17-jre
 
 WORKDIR /app
+RUN chown 10001:10001 /app
 
 ENV SPRING_PROFILES_ACTIVE=prod
 ENV PORT=8080
 ENV JAVA_OPTS=""
 
-COPY --from=build /workspace/target/*.war /app/laptopshop.war
+COPY --from=build --chown=10001:10001 /workspace/target/*.war /app/laptopshop.war
+
+USER 10001:10001
 
 EXPOSE 8080
 

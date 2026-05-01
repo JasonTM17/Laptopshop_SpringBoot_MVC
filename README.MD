@@ -3,6 +3,7 @@
 ![Laptopshop GitHub hero](docs/screenshots/github-hero.png)
 
 [![CI](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/codeql.yml)
 [![Release](https://img.shields.io/github/v/release/JasonTM17/laptopshop-spring-boot-mvc?label=release)](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/releases)
 ![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.14-6DB33F?logo=springboot&logoColor=white)
