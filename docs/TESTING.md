@@ -22,6 +22,12 @@ Build the Docker image:
 docker build -t laptopshop:local .
 ```
 
+Pull the published portfolio image after the GHCR workflow runs:
+
+```powershell
+docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+```
+
 Validate Docker Compose syntax:
 
 ```powershell
@@ -70,7 +76,7 @@ Check:
 
 ## Release Smoke Evidence
 
-For the v1.0.0 portfolio release, the final manual/browser smoke covered:
+For the v1.0.1 portfolio release, the final manual/browser smoke covered:
 
 ```text
 / -> /products?factory=APPLE -> /product/1 -> /cart -> /checkout

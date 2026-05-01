@@ -49,6 +49,12 @@ docker compose up --build
 
 Open [http://localhost:8080](http://localhost:8080)
 
+Published container image:
+
+```powershell
+docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+```
+
 ## Demo Accounts
 
 - Admin: `admin@laptopshop.dev` / `Admin@123`

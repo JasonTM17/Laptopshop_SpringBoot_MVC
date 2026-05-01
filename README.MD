@@ -1,32 +1,68 @@
 # Laptopshop
 
-![Laptopshop cover](docs/screenshots/laptopshop-cover.svg)
+![Laptopshop GitHub hero](docs/screenshots/github-hero.png)
 
-Laptopshop is a full-stack Java Spring Boot e-commerce application for selling laptops. The UI is designed with a modern Vietnamese electronics-retail feel: red brand system, dense product cards, searchable catalog, polished cart/checkout flow, account area, and an admin dashboard for managing products, users, and orders.
+[![CI](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/JasonTM17/laptopshop-spring-boot-mvc?label=release)](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/releases)
+![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.14-6DB33F?logo=springboot&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
+[![Container](https://img.shields.io/badge/GHCR-container-24292f?logo=github)](https://github.com/users/JasonTM17/packages/container/package/laptopshop-spring-boot-mvc)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.MD)
 
-Quick start for reviewers: [INSTALLATION.md](INSTALLATION.md)
+**Laptopshop is a Spring Boot MVC laptop e-commerce portfolio app with a polished retail storefront, customer checkout, admin dashboard, automated tests, Docker, and CI.**
 
-Project story and scope: [docs/ABOUT.md](docs/ABOUT.md)
+Built for recruiter review and technical screening: the first minute shows the product, the next five minutes prove the engineering.
 
-Release notes: [RELEASE_NOTES.md](RELEASE_NOTES.md)
+## 60-Second Review
 
-Reviewer guide: [docs/REVIEWER_GUIDE.md](docs/REVIEWER_GUIDE.md)
+| What to check | Route or file |
+| --- | --- |
+| Storefront and catalog | `/` -> `/products` -> `/product/1` |
+| Customer flow | login as customer -> `/cart` -> `/checkout` -> `/order-history` |
+| Admin flow | login as admin -> `/admin` -> products, users, orders |
+| Test, CI, container | [GitHub Actions](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions), [GHCR package](https://github.com/users/JasonTM17/packages/container/package/laptopshop-spring-boot-mvc), and `.\mvnw.cmd package` |
+| Setup in 3 minutes | [INSTALLATION.md](INSTALLATION.md) |
 
-Feature matrix: [docs/FEATURE_MATRIX.md](docs/FEATURE_MATRIX.md)
+## Demo Accounts
 
-GitHub repo setup: [docs/GITHUB_REPO_SETUP.md](docs/GITHUB_REPO_SETUP.md)
+| Role | Email | Password |
+| --- | --- | --- |
+| Admin | `admin@laptopshop.dev` | `Admin@123` |
+| Customer | `customer@laptopshop.dev` | `Customer@123` |
 
-Architecture notes: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+The `local` profile seeds demo roles, accounts, products, a customer cart, and order history on an empty database.
 
-Testing guide: [docs/TESTING.md](docs/TESTING.md)
+## Quick Start
 
-Deployment notes: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+```powershell
+git clone https://github.com/JasonTM17/laptopshop-spring-boot-mvc.git
+cd laptopshop-spring-boot-mvc
 
-Publishing checklist: [docs/PORTFOLIO_CHECKLIST.md](docs/PORTFOLIO_CHECKLIST.md)
+docker compose up --build
+```
 
-Showcase script: [docs/SHOWCASE.md](docs/SHOWCASE.md)
+Container image:
 
-## Screenshots
+```powershell
+docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+```
+
+Open:
+
+```text
+http://localhost:8080
+```
+
+Without Docker:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE = "local"
+$env:MYSQL_PASSWORD = "your_mysql_password"
+.\mvnw.cmd spring-boot:run
+```
+
+## Product Gallery
 
 | Home | Catalog |
 | --- | --- |
@@ -46,84 +82,54 @@ Showcase script: [docs/SHOWCASE.md](docs/SHOWCASE.md)
 
 ## Highlights
 
-- Storefront with retail-style header, large search with live product suggestions, category navigation, promo hero, flash-sale area, product cards, and responsive footer.
-- Product catalog with filters by brand, need, price range, search keyword, sorting, readable active filter chips, and pagination.
-- Product detail page with pricing, promotion, warranty/support blocks, quantity control, add-to-cart API, and a real buy-now shortcut to checkout.
-- Cart and checkout with stock validation, quantity validation, payment method, order creation, stock decrement, and sold count update.
-- Account area with profile update, password change, address information, and order history.
-- Admin dashboard for users, products, orders, backend search/filter on admin lists, real revenue/factory/low-stock metrics, CSV order export, product image upload, validated status flow, and consistent red Laptopshop branding.
-- Professional About page with operating metrics, service process, warranty, return, terms, and privacy sections.
-- Hardened backend behavior: JSON `401/403` for API failures, clear `404` pages, no password in `User.toString()`, transactional cart/order flows, cacheable static assets, sitemap/robots metadata, and `spring.jpa.open-in-view=false`.
-
-## Release Status
-
-Current release: **v1.0.0 Portfolio Showcase**.
-
-This release is designed for GitHub, recruiter review, and local demo. It includes a complete storefront, customer flow, admin workflow, demo seed data, automated tests, Docker/Render assets, and full documentation.
-
-Release details: [RELEASE_NOTES.md](RELEASE_NOTES.md)
-
-Reviewer path: [docs/REVIEWER_GUIDE.md](docs/REVIEWER_GUIDE.md)
-
-GitHub metadata/release setup: [docs/GITHUB_REPO_SETUP.md](docs/GITHUB_REPO_SETUP.md)
+- Retail-style storefront with red Laptopshop branding, category navigation, promo sections, dense product cards, and responsive layout.
+- Catalog search, product suggestions, filters, sorting, active chips, and pagination.
+- Product detail with promo blocks, warranty/support content, add-to-cart, and buy-now shortcut.
+- Cart and checkout with quantity validation, stock validation, payment method, order creation, stock decrement, and sold-count update.
+- Account profile, password change, address information, and order history.
+- Admin dashboard with real metrics, revenue/factory charts, low-stock list, recent activity, search/filter, order status validation, and CSV export.
+- Production-minded setup: Spring profiles, env vars, Docker Compose, Render blueprint, health endpoint, sitemap, robots, cacheable static assets, and CI.
 
 ## Tech Stack
 
-- Java 17
-- Spring Boot 3.5.14
-- Spring MVC, JSP, JSTL
-- Spring Security
-- Spring Data JPA, Hibernate
-- MySQL for local/prod database
-- H2 for tests
-- Maven Wrapper
-- Bootstrap Icons, custom CSS design system
-- Docker and Docker Compose
+| Layer | Stack |
+| --- | --- |
+| Backend | Java 17, Spring Boot 3.5.14, Spring MVC, Spring Security |
+| Views | JSP, JSTL, Bootstrap Icons, custom CSS design system |
+| Data | Spring Data JPA, Hibernate, MySQL, H2 for tests |
+| Tooling | Maven Wrapper, Docker, Docker Compose, GitHub Actions |
 
-## Demo Accounts
+## Tests
 
-For the quickest review flow, running the app with the `local` profile will auto-create demo roles, accounts, and sample products on an empty database. You can also import `database/laptopshop.sql` if you want the fuller seed dataset.
+```powershell
+.\mvnw.cmd test
+.\mvnw.cmd package
+docker build -t laptopshop:ci .
+```
 
-| Role | Email | Password |
-| --- | --- | --- |
-| Admin | `admin@laptopshop.dev` | `Admin@123` |
-| Customer | `customer@laptopshop.dev` | `Customer@123` |
+Current coverage includes register validation, catalog filtering, suggestion API, cart operations, checkout/order creation, API JSON auth failures, public route smoke, customer flow, admin metrics, CSV export, and order status validation.
 
-In `local` mode, the customer account also receives a sample cart and sample order history so reviewer flows are visible immediately after first run.
+## Useful Routes
 
-Admin area: `/admin`
+| Area | Route |
+| --- | --- |
+| Home | `/` |
+| Catalog | `/products` |
+| Product detail | `/product/{id}` |
+| Login / Register | `/login`, `/register` |
+| Cart / Checkout | `/cart`, `/checkout` |
+| Account / Orders | `/account`, `/order-history` |
+| About | `/about` |
+| Admin | `/admin` |
+| Product suggestions API | `/api/products/suggest?name=mac` |
+| Admin order CSV | `/admin/report/orders.csv` |
 
-Customer flows: `/products`, `/cart`, `/checkout`, `/order-history`, `/account`
-
-## Configuration
+<details>
+<summary><strong>Configuration</strong></summary>
 
 The app uses Spring profiles and environment variables. Secrets are not hard-coded in `application.properties`.
 
-Default profile:
-
-```properties
-SPRING_PROFILES_ACTIVE=local
-```
-
-Local profile file:
-
-```text
-src/main/resources/application-local.properties
-```
-
-Production profile file:
-
-```text
-src/main/resources/application-prod.properties
-```
-
-Create a local env file from the example:
-
-```powershell
-Copy-Item .env.example .env
-```
-
-Set these values for local development:
+Default local environment:
 
 ```powershell
 $env:SPRING_PROFILES_ACTIVE = "local"
@@ -136,7 +142,7 @@ $env:APP_DEMO_SEED = "true"
 $env:APP_BASE_URL = "http://localhost:8080"
 ```
 
-For production, set:
+Production environment:
 
 ```text
 SPRING_PROFILES_ACTIVE=prod
@@ -149,173 +155,54 @@ PORT=8080
 APP_BASE_URL=https://your-live-demo.example
 ```
 
-## Run Locally
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for deployment notes.
 
-Requirements:
+</details>
 
-- JDK 17+
-- MySQL 8+
-- Maven Wrapper from this repo
+<details>
+<summary><strong>Documentation Map</strong></summary>
 
-Option A: start with an empty `laptopshop` database and let the local profile seed the demo data automatically.
+- [INSTALLATION.md](INSTALLATION.md) - 3-minute local setup.
+- [RELEASE_NOTES.md](RELEASE_NOTES.md) - release summary and known limits.
+- [docs/ABOUT.md](docs/ABOUT.md) - project story and product scope.
+- [docs/REVIEWER_GUIDE.md](docs/REVIEWER_GUIDE.md) - recommended review script.
+- [docs/FEATURE_MATRIX.md](docs/FEATURE_MATRIX.md) - feature coverage.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - architecture notes.
+- [docs/TESTING.md](docs/TESTING.md) - test strategy.
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) - deployment notes.
+- [docs/SHOWCASE.md](docs/SHOWCASE.md) - portfolio walkthrough script.
+- [docs/GITHUB_REPO_SETUP.md](docs/GITHUB_REPO_SETUP.md) - GitHub metadata checklist.
+- [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
-Option B: import the full SQL seed:
+</details>
 
-```powershell
-mysql -u root -p < database/laptopshop.sql
-```
-
-Start the app:
-
-```powershell
-$env:SPRING_PROFILES_ACTIVE = "local"
-$env:MYSQL_PASSWORD = "your_mysql_password"
-.\mvnw.cmd spring-boot:run
-```
-
-Open:
-
-```text
-http://localhost:8080
-```
-
-If port `8080` is occupied:
-
-```powershell
-.\mvnw.cmd spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
-```
-
-## Run With Docker Compose
-
-Start MySQL:
-
-```powershell
-docker compose up -d db-mysql
-```
-
-Import seed data:
-
-```powershell
-Get-Content database\laptopshop.sql | docker exec -i mysql-laptopshop mysql -uroot -plaptopshop_dev_password
-```
-
-Build and run the app:
-
-```powershell
-docker compose up --build app
-```
-
-Open:
-
-```text
-http://localhost:8080
-```
-
-The Docker Compose default password is only for local demo. Override it with `MYSQL_PASSWORD` in your shell or `.env` file.
-
-Docker Compose also seeds demo data automatically through the `local` profile, so the customer cart and order history are ready after first startup.
-
-## CI And Deployment
-
-- GitHub Actions workflow: `.github/workflows/ci.yml`
-- Docker image build: `docker build -t laptopshop .`
-- Render blueprint: `render.yaml`
-- Health check: `/actuator/health`
-- Dependency monitoring: `.github/dependabot.yml`
-- Repository hygiene: `CONTRIBUTING.md`, `SECURITY.md`, `.editorconfig`, `.gitattributes`
-
-Recommended portfolio review path:
-
-```text
-/ -> /products -> /product/1 -> login as customer -> /cart -> /order-history -> login as admin -> /admin
-```
-
-## Test
-
-Run all tests:
-
-```powershell
-.\mvnw.cmd test
-```
-
-Build the WAR and run tests:
-
-```powershell
-.\mvnw.cmd package
-```
-
-Current coverage includes:
-
-- Register validator and strong password checks.
-- Product service filtering, search, price ranges, and sorting.
-- Product suggestion API for the header autocomplete.
-- Cart add/update/remove, invalid quantity, stock validation.
-- Place order flow, transactional stock/sold update, empty-cart handling.
-- Public route E2E smoke through MockMvc.
-- API unauthenticated `401 JSON` and protected page redirects.
-- Authenticated customer flow: add to cart, cart page, checkout, order history.
-- Admin dashboard metrics, backend list search/filter, order detail route, CSV export, and order status validation.
-
-Detailed testing notes: [docs/TESTING.md](docs/TESTING.md)
-
-## Useful Routes
-
-| Area | Route |
-| --- | --- |
-| Home | `/` |
-| Catalog | `/products` |
-| Product detail | `/product/{id}` |
-| Login | `/login` |
-| Register | `/register` |
-| Cart | `/cart` |
-| Checkout | `/checkout` |
-| Order history | `/order-history` |
-| Account | `/account` |
-| About | `/about` |
-| Admin | `/admin` |
-| Product suggestions API | `/api/products/suggest?name=mac` |
-| Admin order CSV | `/admin/report/orders.csv` |
-
-## Project Structure
+<details>
+<summary><strong>Project Structure</strong></summary>
 
 ```text
 src/main/java/vn/hoidanit/laptopshop
-  config/              Security and authentication config
-  controller/          Client and admin controllers
-  domain/              JPA entities and DTOs
-  repository/          Spring Data repositories
-  service/             Business logic
-  service/specification Product filtering specs
-  service/validator    Form validators
+  config/               security, auth, MVC config
+  controller/           client and admin controllers
+  domain/               JPA entities and DTOs
+  repository/           Spring Data repositories
+  service/              business logic
+  service/specification product filtering specs
+  service/validator     form validators
 
 src/main/webapp
-  WEB-INF/view         JSP pages
-  resources/css        Design system and app styles
-  resources/js         Shared UI helpers
-  resources/client/js  Client storefront behavior
+  WEB-INF/view          JSP pages
+  resources/css         design system and app styles
+  resources/js          shared UI helpers
+  resources/client/js   storefront behavior
 
-database/laptopshop.sql Seed schema and demo data
-docs/screenshots         Portfolio screenshots
+database/laptopshop.sql seed schema and demo data
+docs/screenshots        portfolio screenshots and GitHub assets
 ```
 
-## Portfolio Notes
+</details>
 
-This project is suitable to present as a Spring MVC portfolio app because it demonstrates:
+## Release Status
 
-- Server-rendered MVC application structure.
-- Authentication and role-based authorization.
-- Real e-commerce business rules.
-- Transactional order handling.
-- Production-like configuration through profiles and environment variables.
-- Automated tests beyond context loading.
-- A cohesive UI/UX system across storefront, account, checkout, and admin.
+Current target release: **v1.0.1 Portfolio Polish**.
 
-## Maintainer Docs
-
-- [RELEASE_NOTES.md](RELEASE_NOTES.md)
-- [docs/ABOUT.md](docs/ABOUT.md)
-- [docs/REVIEWER_GUIDE.md](docs/REVIEWER_GUIDE.md)
-- [docs/FEATURE_MATRIX.md](docs/FEATURE_MATRIX.md)
-- [docs/GITHUB_REPO_SETUP.md](docs/GITHUB_REPO_SETUP.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [SECURITY.md](SECURITY.md)
+The app is intended for GitHub portfolio review, recruiter demos, and local technical evaluation. Wishlist and payment gateway behavior are intentionally scoped for portfolio use, not production commerce.

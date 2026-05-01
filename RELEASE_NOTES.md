@@ -1,5 +1,40 @@
 # Laptopshop Release Notes
 
+## v1.0.1 Portfolio Polish - 2026-05-01
+
+This release focuses on the GitHub portfolio presentation: a recruiter-first README, safer GitHub hero artwork, concise repository metadata, updated social-preview asset, protected default branch, and a fresh source release target.
+
+### Highlights
+
+- README first viewport redesigned around quick review: pitch, badges, demo accounts, reviewer route, quick start, screenshots, and collapsed deep docs.
+- GitHub hero replaced with a shorter SVG that avoids clipped text in GitHub dark/light mode.
+- New `docs/screenshots/github-social-preview.png` asset prepared for repository social preview.
+- Repository identity standardized as `laptopshop-spring-boot-mvc`.
+- GitHub Container Registry publishing added for `ghcr.io/jasontm17/laptopshop-spring-boot-mvc`.
+- Release/checklist docs updated for `v1.0.1 Portfolio Polish`.
+
+### Verification
+
+Validated locally for this release:
+
+```powershell
+.\mvnw.cmd package
+git diff --check
+```
+
+GitHub verification targets:
+
+- Latest `master` Actions run is green.
+- GitHub Packages shows the GHCR container package.
+- Branch protection is enabled for `master` with the `Test and package` status check.
+- Open pull request count is `0`.
+- Latest release is `Laptopshop v1.0.1 Portfolio Polish`.
+
+### Known Limits
+
+- Website remains blank until a real deployed demo exists.
+- Social preview upload is a GitHub repository setting; the source image is tracked in `docs/screenshots/github-social-preview.png`.
+
 ## v1.0.0 Portfolio Showcase - 2026-04-30
 
 This release packages Laptopshop as a complete Spring Boot MVC portfolio project: polished storefront, real customer checkout flow, admin operations, demo data, automated tests, Docker/Render deployment assets, and reviewer-friendly documentation.

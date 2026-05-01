@@ -11,8 +11,10 @@ Use this when preparing Laptopshop for GitHub, LinkedIn, or a live demo.
 - Confirm Dependabot is enabled for Maven and GitHub Actions.
 - Pin the demo accounts in the README and installation guide.
 - Link `RELEASE_NOTES.md`, `docs/ABOUT.md`, `docs/REVIEWER_GUIDE.md`, `docs/FEATURE_MATRIX.md`, and `docs/GITHUB_REPO_SETUP.md` from the README.
-- Fill GitHub About with the text from `docs/SHOWCASE.md`.
-- Publish the `v1.0.0` source release using `docs/GITHUB_REPO_SETUP.md`.
+- Fill GitHub About with the short description from `docs/GITHUB_REPO_SETUP.md`.
+- Publish the `v1.0.1` source release using `docs/GITHUB_REPO_SETUP.md`.
+- Confirm the GHCR package is published from `.github/workflows/container.yml`.
+- Protect `master` with the lightweight status-check rule from `docs/GITHUB_REPO_SETUP.md`.
 - Link a live demo only after production env vars are configured.
 
 ## Local Review
@@ -58,7 +60,7 @@ curl.exe http://localhost:8081/robots.txt
 
 ## Final Presentation
 
-- Use `docs/screenshots/laptopshop-cover.svg` as the social preview or pinned image.
+- Use `docs/screenshots/github-social-preview.png` as the social preview image.
 - Lead with the customer workflow and admin dashboard.
 - Open `/about` to show the product story, service policies, release status, and reviewer checklist.
 - Reference `RELEASE_NOTES.md` to make the release scope and known limits explicit.
