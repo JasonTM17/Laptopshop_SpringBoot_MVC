@@ -50,6 +50,14 @@ class RegisterValidatorTest {
         assertThat(validator.isValid(dto, context)).isFalse();
     }
 
+    @Test
+    void strongPasswordPolicyRejectsWeakPasswords() {
+        StrongPasswordValidator passwordValidator = new StrongPasswordValidator();
+
+        assertThat(passwordValidator.isValid("secret1", context)).isFalse();
+        assertThat(passwordValidator.isValid("Password123!", context)).isTrue();
+    }
+
     private RegisterDTO dto(String email, String password, String confirmPassword) {
         RegisterDTO dto = new RegisterDTO();
         dto.setFirstName("Nguyen");
