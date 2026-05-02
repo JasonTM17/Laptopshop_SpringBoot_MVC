@@ -22,10 +22,10 @@ Build the Docker image:
 docker build -t laptopshop:local .
 ```
 
-Pull the published portfolio image after the GHCR workflow runs:
+Pull the published portfolio image after the Docker Hub workflow runs:
 
 ```powershell
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 Validate Docker Compose syntax:

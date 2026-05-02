@@ -40,7 +40,7 @@ docker build -t laptopshop:release .
 Published portfolio image:
 
 ```powershell
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 Run the image with environment variables:
@@ -116,7 +116,7 @@ For a public demo database, create sanitized demo accounts only. Never reuse per
 .\mvnw.cmd package
 docker build -t laptopshop:release .
 docker compose config
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 Manual smoke:

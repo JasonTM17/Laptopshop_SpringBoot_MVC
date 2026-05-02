@@ -44,19 +44,20 @@ This removes the unprotected-branch warning while still keeping the repo practic
 
 ## Container Package
 
-Publish the portfolio image to GitHub Container Registry so the GitHub sidebar does not show an empty Packages section.
+Publish the portfolio image to Docker Hub for reviewer-friendly pulls. The workflow can also keep GHCR as a secondary package, but Docker Hub is the public portfolio registry.
 
 | Field | Value |
 | --- | --- |
 | Workflow | `.github/workflows/container.yml` |
-| Registry | GitHub Container Registry |
-| Image | `ghcr.io/jasontm17/laptopshop-spring-boot-mvc` |
+| Primary registry | Docker Hub |
+| Image | `nguyenson1710/laptopshop-spring-boot-mvc` |
 | Tags | `latest`, `v*`, `sha-*` |
+| Required secrets | `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` |
 
 Reviewer pull command:
 
 ```powershell
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 ## Release
@@ -75,7 +76,7 @@ Release body:
 ```markdown
 ## Laptopshop v1.0.2 Visual Portfolio Polish
 
-This release polishes Laptopshop as a recruiter-first Spring Boot MVC portfolio: cleaner GitHub presentation, imagegen-based README/social visuals with deterministic typography, concise repo metadata, protected default branch, GHCR package, and updated source release.
+This release polishes Laptopshop as a recruiter-first Spring Boot MVC portfolio: cleaner GitHub presentation, imagegen-based README/social visuals with deterministic typography, concise repo metadata, protected default branch, Docker Hub package, and updated source release.
 
 ### Highlights
 
@@ -84,7 +85,7 @@ This release polishes Laptopshop as a recruiter-first Spring Boot MVC portfolio:
 - Admin dashboard with real metrics, charts, low-stock activity, status validation, and CSV export.
 - Production-minded setup with profiles, env vars, Docker, Render blueprint, health endpoint, sitemap, robots, cache headers, and CI.
 - Recruiter-friendly README with quick review path, demo accounts, screenshots, docs map, and concise technical proof.
-- GitHub Container Registry package published for `ghcr.io/jasontm17/laptopshop-spring-boot-mvc`.
+- Docker Hub package published for `nguyenson1710/laptopshop-spring-boot-mvc`.
 
 ### Verification
 

@@ -8,7 +8,7 @@
 ![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.14-6DB33F?logo=springboot&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
-[![Container](https://img.shields.io/badge/GHCR-container-24292f?logo=github)](https://github.com/users/JasonTM17/packages/container/package/laptopshop-spring-boot-mvc)
+[![Docker Hub](https://img.shields.io/docker/pulls/nguyenson1710/laptopshop-spring-boot-mvc?label=Docker%20Hub&logo=docker)](https://hub.docker.com/r/nguyenson1710/laptopshop-spring-boot-mvc)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.MD)
 
 **Laptopshop is a Spring Boot MVC laptop e-commerce portfolio app with a polished retail storefront, customer checkout, admin dashboard, automated tests, Docker, and CI.**
@@ -22,7 +22,7 @@ Built for recruiter review and technical screening: the first minute shows the p
 | Storefront and catalog | `/` -> `/products` -> `/product/1` |
 | Customer flow | login as customer -> `/cart` -> `/checkout` -> `/order-history` |
 | Admin flow | login as admin -> `/admin` -> products, users, orders |
-| Test, CI, container | [GitHub Actions](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions), [GHCR package](https://github.com/users/JasonTM17/packages/container/package/laptopshop-spring-boot-mvc), and `.\mvnw.cmd package` |
+| Test, CI, container | [GitHub Actions](https://github.com/JasonTM17/laptopshop-spring-boot-mvc/actions), [Docker Hub image](https://hub.docker.com/r/nguyenson1710/laptopshop-spring-boot-mvc), and `.\mvnw.cmd package` |
 | Setup in 3 minutes | [INSTALLATION.md](INSTALLATION.md) |
 
 ## Demo Accounts
@@ -46,7 +46,7 @@ docker compose up --build
 Container image:
 
 ```powershell
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 Open:

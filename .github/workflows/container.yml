@@ -13,11 +13,14 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/jasontm17/laptopshop-spring-boot-mvc
+  DOCKERHUB_IMAGE: nguyenson1710/laptopshop-spring-boot-mvc
+  GHCR_IMAGE: ghcr.io/jasontm17/laptopshop-spring-boot-mvc
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
 jobs:
   publish:
-    name: Build and publish GHCR image
+    name: Build and publish container images
     runs-on: ubuntu-latest
 
     steps:
@@ -34,11 +37,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract Docker metadata
-        id: meta
+      - name: Log in to Docker Hub
+        if: env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != ''
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
+
+      - name: Extract GHCR metadata
+        id: meta-ghcr
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: ${{ env.GHCR_IMAGE }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=ref,event=tag
@@ -46,12 +56,36 @@ jobs:
           labels: |
             org.opencontainers.image.title=Laptopshop
             org.opencontainers.image.description=Spring Boot MVC laptop e-commerce portfolio with retail storefront, checkout, admin dashboard, tests, Docker, and CI.
-            org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/laptopshop-spring-boot-mvc
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
-      - name: Build and publish image
+      - name: Extract Docker Hub metadata
+        id: meta-dockerhub
+        if: env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != ''
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.DOCKERHUB_IMAGE }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=ref,event=tag
+            type=sha,prefix=sha-
+          labels: |
+            org.opencontainers.image.title=Laptopshop
+            org.opencontainers.image.description=Spring Boot MVC laptop e-commerce portfolio with retail storefront, checkout, admin dashboard, tests, Docker, and CI.
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+
+      - name: Build and publish GHCR image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-ghcr.outputs.tags }}
+          labels: ${{ steps.meta-ghcr.outputs.labels }}
+
+      - name: Build and publish Docker Hub image
+        if: env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != ''
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta-dockerhub.outputs.tags }}
+          labels: ${{ steps.meta-dockerhub.outputs.labels }}

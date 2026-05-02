@@ -52,7 +52,7 @@ Open [http://localhost:8080](http://localhost:8080)
 Published container image:
 
 ```powershell
-docker pull ghcr.io/jasontm17/laptopshop-spring-boot-mvc:latest
+docker pull nguyenson1710/laptopshop-spring-boot-mvc:latest
 ```
 
 ## Demo Accounts

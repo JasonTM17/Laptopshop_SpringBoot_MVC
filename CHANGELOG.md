@@ -8,6 +8,7 @@ All notable changes to Laptopshop are documented here. Detailed release context 
 - Added regression coverage for security headers, strong password policy, and spoofed image upload rejection.
 - Added CodeQL Java analysis workflow and documented the updated security baseline.
 - Hardened the Docker runtime to run as a non-root user.
+- Corrected portfolio container publishing docs/workflow to use Docker Hub `nguyenson1710/laptopshop-spring-boot-mvc` as the primary image.
 - Account-synced wishlist, real payment integration, promotion/spec schema, object storage, and notification adapters are planned as possible next-release slices.
 
 ## v1.0.0 Portfolio Showcase - 2026-04-30
